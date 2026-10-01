@@ -10,6 +10,7 @@ import {
   Megaphone,
   Camera,
 } from "lucide-react";
+import { Link } from "react-router";
 
 const FV =
   "focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-[#0033e0] focus-visible:outline-offset-[3px]";
@@ -168,7 +169,7 @@ function ProgressBar() {
 function CourseCard({ title, thumb, i }: { title: string; thumb: string; i: number }) {
   return (
     <article className="bg-white border border-[#dfe1f5] rounded-[18px] overflow-hidden flex flex-col">
-      <a href="course-detail.html" className={`block ${FV}`}>
+      <Link to={`/courses/${i + 1}`} className={`block ${FV}`}>
         <div
           className="relative h-[170px] flex items-end justify-between gap-1.5 p-3.5"
           style={{ background: `linear-gradient(135deg,${grads[i % grads.length]})` }}
@@ -183,7 +184,7 @@ function CourseCard({ title, thumb, i }: { title: string; thumb: string; i: numb
           <span className={`relative ${THUMB_PILL}`}>2 hours 16 mins</span>
           <span className={`relative ${THUMB_PILL}`}>59 Comments</span>
         </div>
-      </a>
+      </Link>
       <div className="p-[18px] flex flex-col gap-2 flex-1">
         <div className="flex justify-between items-center gap-2">
           <h3 className="m-0 text-base font-bold leading-[1.1] tracking-[-.02em]">{title}</h3>
